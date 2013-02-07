@@ -23,7 +23,7 @@ namespace Demo
             set { compareResult = value; }
         }
 
-        public static Dictionary<string, Rectangle> listRectangle = new Dictionary<string, Rectangle>();
+        public static Dictionary<LeftOrRight, Rectangle> listRectangle = new Dictionary<LeftOrRight, Rectangle>();
 
         public static void WriteSetting()
         {

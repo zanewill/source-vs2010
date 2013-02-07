@@ -8,8 +8,10 @@ namespace Demo
 {
     public enum LeftOrRight
     {
+        Note,
         Left,
-        Right
+        Right,
+        Top
     }
 
     public class BMPParser
@@ -42,6 +44,8 @@ namespace Demo
             return rtBitmap;
         }
 
+        private LeftOrRight lor = LeftOrRight.Note;
+
         public Bitmap ComparseBMP(Bitmap targetBMP)
         {
             Bitmap resultBMP = (Bitmap)targetBMP.Clone();
@@ -53,13 +57,68 @@ namespace Demo
                 {
                     g.DrawRectangles(new Pen(Brushes.Blue, 1f), compareResult.ToArray());
                 }
-                g.DrawRectangle(new Pen(Brushes.Red, 3f), SettingClass.listRectangle["Left"]);
-                g.DrawRectangle(new Pen(Brushes.Blue, 3f), SettingClass.listRectangle["Right"]);
-                g.DrawRectangle(new Pen(Brushes.Green, 3f), SettingClass.listRectangle["Top"]);
+
+                Dictionary<LeftOrRight, bool> lors = CompareRectangle(compareResult);
+
+                g.DrawRectangle(new Pen(Brushes.Green, 1f), SettingClass.listRectangle[LeftOrRight.Left]);
+                g.DrawRectangle(new Pen(Brushes.Green, 1f), SettingClass.listRectangle[LeftOrRight.Right]);
+                g.DrawRectangle(new Pen(Brushes.Green, 1f), SettingClass.listRectangle[LeftOrRight.Top]);
+
+                if (lors.Keys.Contains(LeftOrRight.Left))
+                {
+                    g.DrawRectangle(new Pen(Brushes.Red, 3f), SettingClass.listRectangle[LeftOrRight.Left]);
+                }
+                if (lors.Keys.Contains(LeftOrRight.Right))
+                {
+                    g.DrawRectangle(new Pen(Brushes.Red, 3f), SettingClass.listRectangle[LeftOrRight.Right]);
+                }
+                if (lors.Keys.Contains(LeftOrRight.Top) )
+                {
+                    g.DrawRectangle(new Pen(Brushes.Red, 3f), SettingClass.listRectangle[LeftOrRight.Top]);
+                }
+                
                 g.Save();
             }
 
             return resultBMP;
+        }
+
+        private Dictionary<LeftOrRight, bool> CompareRectangle(List<Rectangle> lsRe)
+        {
+            Dictionary<LeftOrRight, bool> lors = new Dictionary<LeftOrRight, bool>();
+            bool b = false;
+            foreach (Rectangle re in lsRe)
+            {
+                if (SettingClass.listRectangle[LeftOrRight.Left].Contains(re))
+                {
+                    if (!lors.TryGetValue(LeftOrRight.Left, out b))
+                    {
+                        lors.Add(LeftOrRight.Left, true);
+                    }
+                }
+
+                if (SettingClass.listRectangle[LeftOrRight.Right].Contains(re))
+                {
+                    if (!lors.TryGetValue(LeftOrRight.Right, out b))
+                    {
+                        lors.Add(LeftOrRight.Right, true);
+                    }
+                }
+
+                if (SettingClass.listRectangle[LeftOrRight.Top].Contains(re))
+                {
+                    if (!lors.TryGetValue(LeftOrRight.Top, out b))
+                    {
+                        lors.Add(LeftOrRight.Top, true);
+                    }
+                }
+
+                if (lors.Keys.Contains(LeftOrRight.Left) && lors.Keys.Contains(LeftOrRight.Right)&& lors.Keys.Contains(LeftOrRight.Top))
+                {
+                    break;
+                }
+            }
+            return lors;
         }
 
         public void SetWorkSize(int size)
@@ -72,9 +131,9 @@ namespace Demo
             Rectangle right = new Rectangle(width - size, 0, size, height - 3);
             Rectangle top = new Rectangle(0, 0, width, size);
 
-            SettingClass.listRectangle["Left"] = left;
-            SettingClass.listRectangle["Right"] = right;
-            SettingClass.listRectangle["Top"] = top;
+            SettingClass.listRectangle[LeftOrRight.Left] = left;
+            SettingClass.listRectangle[LeftOrRight.Right] = right;
+            SettingClass.listRectangle[LeftOrRight.Top] = top;
         }
     }
 }
