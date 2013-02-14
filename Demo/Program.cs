@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using ImageParser;
 
 namespace Demo
 {
@@ -13,10 +14,10 @@ namespace Demo
         [STAThread]
         static void Main()
         {
-            SettingClass.ReadSetting();
+            SettingClass.Instance.ReadSetting();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+            Application.Run(new AllInOne());
         }
     }
 }

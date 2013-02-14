@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Touchless.Vision.Camera;
+using ImageParser;
 
 namespace Demo
 {
@@ -139,12 +140,12 @@ namespace Demo
                 _frameSource.Camera.ShowPropertiesDialog();
         }
         BMPParser parser ;//= new BMPParser((Bitmap)_latestFrame.Clone());
-        CompareResultForm compareResultForm;
+        CompareSetting compareResultForm;
         private void button1_Click(object sender, EventArgs e)
         {
             Bitmap compareResult = parser.ComparseBMP((Bitmap)_latestFrame.Clone());
 
-            compareResultForm = new CompareResultForm();
+            compareResultForm = new CompareSetting();
             compareResultForm.SetShowBMP(compareResult);
             compareResultForm.SetBaseBMP(parser.BasicBMP);
             timer1.Start();

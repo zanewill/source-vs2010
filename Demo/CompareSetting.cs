@@ -6,10 +6,11 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using ImageParser;
 
 namespace Demo
 {
-    public partial class CompareResultForm : Form
+    public partial class CompareSetting : Form
     {
         Bitmap baseBMP;
         public void SetBaseBMP(Bitmap bmp)
@@ -22,7 +23,7 @@ namespace Demo
             this.pictureBox2.Image = bmp;
         }
 
-        public CompareResultForm()
+        public CompareSetting()
         {
             InitializeComponent();
         }
@@ -34,40 +35,40 @@ namespace Demo
             switch (trackBar.Name)
             {
                 case "trackBar_R":
-                    SettingClass.R_Diff = trackBar.Value;
+                    SettingClass.Instance.R_Diff = trackBar.Value;
                     this.label_R.Text = "R Diff(" + trackBar.Value + ")";
                     break;
                 case "trackBar_G":
-                    SettingClass.G_Diff = trackBar.Value;
+                    SettingClass.Instance.G_Diff = trackBar.Value;
                     this.label_G.Text = "G Diff(" + trackBar.Value + ")";
                     break;
                 case "trackBar_B":
-                    SettingClass.B_Diff = trackBar.Value;
+                    SettingClass.Instance.B_Diff = trackBar.Value;
                     this.label_B.Text = "B Diff(" + trackBar.Value + ")";
                     break;
                 case "trackBar_WorkSize":
-                    SettingClass.WorkSize = trackBar.Value;
+                    SettingClass.Instance.WorkSize = trackBar.Value;
                     this.label1.Text = "WorkSize:" + trackBar.Value;
                     break;
                 default:
                     break;
             }
 
-            SettingClass.WriteSetting();
+            SettingClass.Instance.WriteSetting(SettingClass.Instance);
         }
 
         private void CompareResultForm_Load(object sender, EventArgs e)
         {
-            trackBar_B.Value = SettingClass.B_Diff;
-            trackBar_G.Value = SettingClass.G_Diff;
-            trackBar_R.Value = SettingClass.R_Diff;
-            trackBar_WorkSize.Value = SettingClass.WorkSize;
+            trackBar_B.Value = SettingClass.Instance.B_Diff;
+            trackBar_G.Value = SettingClass.Instance.G_Diff;
+            trackBar_R.Value = SettingClass.Instance.R_Diff;
+            trackBar_WorkSize.Value = SettingClass.Instance.WorkSize;
 
-            this.label_R.Text = "R Diff(" + SettingClass.B_Diff + ")";
-            this.label_G.Text = "G Diff(" + SettingClass.G_Diff + ")";
-            this.label_B.Text = "B Diff(" + SettingClass.B_Diff + ")";
+            this.label_R.Text = "R Diff(" + SettingClass.Instance.B_Diff + ")";
+            this.label_G.Text = "G Diff(" + SettingClass.Instance.G_Diff + ")";
+            this.label_B.Text = "B Diff(" + SettingClass.Instance.B_Diff + ")";
 
-            this.label1.Text = "WorkSize:" + SettingClass.WorkSize;
+            this.label1.Text = "WorkSize:" + SettingClass.Instance.WorkSize;
         }
 
         private void button1_Click(object sender, EventArgs e)

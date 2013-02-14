@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Drawing;
 
-namespace Demo
+namespace ImageParser
 {
     public enum LeftOrRight
     {
@@ -49,7 +49,7 @@ namespace Demo
         public Bitmap ComparseBMP(Bitmap targetBMP)
         {
             Bitmap resultBMP = (Bitmap)targetBMP.Clone();
-            SetWorkSize(SettingClass.WorkSize);
+            SetWorkSize(SettingClass.Instance.WorkSize);
             List<Rectangle> compareResult = ImageComparer.Compare(_basicBMP, targetBMP);
             using (Graphics g = Graphics.FromImage(resultBMP))
             {   
@@ -60,21 +60,21 @@ namespace Demo
 
                 Dictionary<LeftOrRight, bool> lors = CompareRectangle(compareResult);
 
-                g.DrawRectangle(new Pen(Brushes.Green, 1f), SettingClass.listRectangle[LeftOrRight.Left]);
-                g.DrawRectangle(new Pen(Brushes.Green, 1f), SettingClass.listRectangle[LeftOrRight.Right]);
-                g.DrawRectangle(new Pen(Brushes.Green, 1f), SettingClass.listRectangle[LeftOrRight.Top]);
+                g.DrawRectangle(new Pen(Brushes.Green, 1f), SettingClass.Instance.listRectangle[LeftOrRight.Left]);
+                g.DrawRectangle(new Pen(Brushes.Green, 1f), SettingClass.Instance.listRectangle[LeftOrRight.Right]);
+                g.DrawRectangle(new Pen(Brushes.Green, 1f), SettingClass.Instance.listRectangle[LeftOrRight.Top]);
 
                 if (lors.Keys.Contains(LeftOrRight.Left))
                 {
-                    g.DrawRectangle(new Pen(Brushes.Red, 3f), SettingClass.listRectangle[LeftOrRight.Left]);
+                    g.DrawRectangle(new Pen(Brushes.Red, 3f), SettingClass.Instance.listRectangle[LeftOrRight.Left]);
                 }
                 if (lors.Keys.Contains(LeftOrRight.Right))
                 {
-                    g.DrawRectangle(new Pen(Brushes.Red, 3f), SettingClass.listRectangle[LeftOrRight.Right]);
+                    g.DrawRectangle(new Pen(Brushes.Red, 3f), SettingClass.Instance.listRectangle[LeftOrRight.Right]);
                 }
                 if (lors.Keys.Contains(LeftOrRight.Top) )
                 {
-                    g.DrawRectangle(new Pen(Brushes.Red, 3f), SettingClass.listRectangle[LeftOrRight.Top]);
+                    g.DrawRectangle(new Pen(Brushes.Red, 3f), SettingClass.Instance.listRectangle[LeftOrRight.Top]);
                 }
                 
                 g.Save();
@@ -89,7 +89,7 @@ namespace Demo
             bool b = false;
             foreach (Rectangle re in lsRe)
             {
-                if (SettingClass.listRectangle[LeftOrRight.Left].Contains(re))
+                if (SettingClass.Instance.listRectangle[LeftOrRight.Left].Contains(re))
                 {
                     if (!lors.TryGetValue(LeftOrRight.Left, out b))
                     {
@@ -97,7 +97,7 @@ namespace Demo
                     }
                 }
 
-                if (SettingClass.listRectangle[LeftOrRight.Right].Contains(re))
+                if (SettingClass.Instance.listRectangle[LeftOrRight.Right].Contains(re))
                 {
                     if (!lors.TryGetValue(LeftOrRight.Right, out b))
                     {
@@ -105,7 +105,7 @@ namespace Demo
                     }
                 }
 
-                if (SettingClass.listRectangle[LeftOrRight.Top].Contains(re))
+                if (SettingClass.Instance.listRectangle[LeftOrRight.Top].Contains(re))
                 {
                     if (!lors.TryGetValue(LeftOrRight.Top, out b))
                     {
@@ -123,7 +123,7 @@ namespace Demo
 
         public void SetWorkSize(int size)
         {
-            SettingClass.listRectangle.Clear();
+            SettingClass.Instance.listRectangle.Clear();
             int width = this._basicBMP.Width;
             int height = this._basicBMP.Height;
 
@@ -131,9 +131,9 @@ namespace Demo
             Rectangle right = new Rectangle(width - size, 0, size, height - 3);
             Rectangle top = new Rectangle(0, 0, width, size);
 
-            SettingClass.listRectangle[LeftOrRight.Left] = left;
-            SettingClass.listRectangle[LeftOrRight.Right] = right;
-            SettingClass.listRectangle[LeftOrRight.Top] = top;
+            SettingClass.Instance.listRectangle[LeftOrRight.Left] = left;
+            SettingClass.Instance.listRectangle[LeftOrRight.Right] = right;
+            SettingClass.Instance.listRectangle[LeftOrRight.Top] = top;
         }
     }
 }

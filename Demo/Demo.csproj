@@ -91,14 +91,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BMPParser.cs" />
-    <Compile Include="CompareResultForm.cs">
+    <Compile Include="AllInOne.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CompareResultForm.Designer.cs">
-      <DependentUpon>CompareResultForm.cs</DependentUpon>
+    <Compile Include="AllInOne.Designer.cs">
+      <DependentUpon>AllInOne.cs</DependentUpon>
     </Compile>
-    <Compile Include="ImageComparer.cs" />
+    <Compile Include="CompareSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CompareSetting.Designer.cs">
+      <DependentUpon>CompareSetting.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,15 +111,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SettingClass.cs" />
     <Compile Include="ShowBasePicForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ShowBasePicForm.Designer.cs">
       <DependentUpon>ShowBasePicForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="CompareResultForm.resx">
-      <DependentUpon>CompareResultForm.cs</DependentUpon>
+    <EmbeddedResource Include="AllInOne.resx">
+      <DependentUpon>AllInOne.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CompareSetting.resx">
+      <DependentUpon>CompareSetting.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -147,6 +153,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ImageParser\ImageParser.csproj">
+      <Project>{67AF1279-8053-4D6D-AA92-D06863CB5D6A}</Project>
+      <Name>ImageParser</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WebCamWrapper\WebCamWrapper.csproj">
       <Project>{CC5D5149-0092-4508-AC34-2ABE1468A1C9}</Project>
       <Name>WebCamWrapper</Name>

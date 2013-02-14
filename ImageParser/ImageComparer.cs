@@ -12,7 +12,7 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.Runtime.InteropServices;
 
-namespace Demo
+namespace ImageParser
 {
     /// <summary>
     /// 图像比较.用于找出两副图片之间的差异位置
@@ -86,7 +86,7 @@ namespace Demo
                                     ICColor* pc1 = (ICColor*)(p1 + wi * 3 + bd1.Stride * j);
                                     ICColor* pc2 = (ICColor*)(p2 + wi * 3 + bd2.Stride * j);
 
-                                    if (pc1->R - pc2->R > SettingClass.R_Diff && pc1->G - pc2->G > SettingClass.G_Diff|| pc1->B -  pc2->B > SettingClass.B_Diff)
+                                    if (pc1->R - pc2->R > SettingClass.Instance.R_Diff && pc1->G - pc2->G > SettingClass.Instance.G_Diff || pc1->B - pc2->B > SettingClass.Instance.B_Diff)
                                     {
                                         //当前块有某个象素点颜色值不相同.也就是有差异.
 

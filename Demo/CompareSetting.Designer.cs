@@ -1,6 +1,6 @@
 ﻿namespace Demo
 {
-    partial class CompareResultForm
+    partial class CompareSetting
     {
         /// <summary>
         /// Required designer variable.
@@ -38,13 +38,14 @@
             this.trackBar_WorkSize = new System.Windows.Forms.TrackBar();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.radioBtn_LeftOrRight = new System.Windows.Forms.RadioButton();
-            this.radioBtn_Angle = new System.Windows.Forms.RadioButton();
+            this.trackBar1 = new System.Windows.Forms.TrackBar();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar_R)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar_G)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar_B)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar_WorkSize)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox2
@@ -133,7 +134,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(887, 403);
+            this.button1.Location = new System.Drawing.Point(878, 453);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(120, 44);
             this.button1.TabIndex = 4;
@@ -141,37 +142,31 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // radioBtn_LeftOrRight
+            // trackBar1
             // 
-            this.radioBtn_LeftOrRight.AutoSize = true;
-            this.radioBtn_LeftOrRight.Font = new System.Drawing.Font("SimSun", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.radioBtn_LeftOrRight.Location = new System.Drawing.Point(813, 261);
-            this.radioBtn_LeftOrRight.Name = "radioBtn_LeftOrRight";
-            this.radioBtn_LeftOrRight.Size = new System.Drawing.Size(137, 24);
-            this.radioBtn_LeftOrRight.TabIndex = 5;
-            this.radioBtn_LeftOrRight.TabStop = true;
-            this.radioBtn_LeftOrRight.Text = "LeftOrRight";
-            this.radioBtn_LeftOrRight.UseVisualStyleBackColor = true;
+            this.trackBar1.Location = new System.Drawing.Point(813, 270);
+            this.trackBar1.Maximum = 3;
+            this.trackBar1.Name = "trackBar1";
+            this.trackBar1.Size = new System.Drawing.Size(194, 45);
+            this.trackBar1.TabIndex = 5;
             // 
-            // radioBtn_Angle
+            // label2
             // 
-            this.radioBtn_Angle.AutoSize = true;
-            this.radioBtn_Angle.Font = new System.Drawing.Font("SimSun", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.radioBtn_Angle.Location = new System.Drawing.Point(813, 304);
-            this.radioBtn_Angle.Name = "radioBtn_Angle";
-            this.radioBtn_Angle.Size = new System.Drawing.Size(77, 24);
-            this.radioBtn_Angle.TabIndex = 5;
-            this.radioBtn_Angle.TabStop = true;
-            this.radioBtn_Angle.Text = "Angle";
-            this.radioBtn_Angle.UseVisualStyleBackColor = true;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("SimSun", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label2.Location = new System.Drawing.Point(662, 270);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(154, 24);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Parser Range";
             // 
             // CompareResultForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1010, 509);
-            this.Controls.Add(this.radioBtn_Angle);
-            this.Controls.Add(this.radioBtn_LeftOrRight);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.trackBar1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label_B);
             this.Controls.Add(this.label_G);
@@ -190,6 +185,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.trackBar_G)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar_B)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar_WorkSize)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -207,7 +203,7 @@
         private System.Windows.Forms.TrackBar trackBar_WorkSize;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.RadioButton radioBtn_LeftOrRight;
-        private System.Windows.Forms.RadioButton radioBtn_Angle;
+        private System.Windows.Forms.TrackBar trackBar1;
+        private System.Windows.Forms.Label label2;
     }
 }
