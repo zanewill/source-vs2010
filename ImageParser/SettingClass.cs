@@ -15,9 +15,17 @@ namespace ImageParser
         private int g_Diff;
         private int b_Diff;
         private int workSize;
+        private int parseRange;
 
         private const string fileName = "Setting.xml";
         private List<Rectangle> compareResult = new List<Rectangle>();
+        private Dictionary<LeftOrRight, Rectangle> listRectangle = new Dictionary<LeftOrRight, Rectangle>();
+
+        public Dictionary<LeftOrRight, Rectangle> ListRectangle
+        {
+            get { return listRectangle; }
+            set { listRectangle = value; }
+        }
 
         public static SettingClass Instance
         {
@@ -33,14 +41,7 @@ namespace ImageParser
         {
         }
 
-        public  List<Rectangle> CompareResult
-        {
-            get { return compareResult; }
-            set { compareResult = value; }
-        }
-
-        public Dictionary<LeftOrRight, Rectangle> listRectangle = new Dictionary<LeftOrRight, Rectangle>();
-
+        
         public void WriteSetting(SettingClass obj)
         {
             SerializableOperate.ObjectSerializable(obj, fileName);
@@ -84,5 +85,12 @@ namespace ImageParser
             get { return r_Diff; }
             set { r_Diff = value; }
         }
+
+        public int ParseRange
+        {
+            get { return parseRange; }
+            set { parseRange = value; }
+        }
+
     }
 }

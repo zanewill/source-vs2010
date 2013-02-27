@@ -50,6 +50,9 @@ namespace Demo
                     SettingClass.Instance.WorkSize = trackBar.Value;
                     this.label1.Text = "WorkSize:" + trackBar.Value;
                     break;
+                case "trackBar_ParserRange":
+                    SettingClass.Instance.ParseRange = trackBar.Value;
+                    break;
                 default:
                     break;
             }

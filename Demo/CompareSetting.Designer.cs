@@ -38,14 +38,14 @@
             this.trackBar_WorkSize = new System.Windows.Forms.TrackBar();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.trackBar1 = new System.Windows.Forms.TrackBar();
+            this.trackBar_ParserRange = new System.Windows.Forms.TrackBar();
             this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar_R)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar_G)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar_B)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar_WorkSize)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar_ParserRange)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox2
@@ -142,13 +142,14 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // trackBar1
+            // trackBar_ParserRange
             // 
-            this.trackBar1.Location = new System.Drawing.Point(813, 270);
-            this.trackBar1.Maximum = 3;
-            this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Size = new System.Drawing.Size(194, 45);
-            this.trackBar1.TabIndex = 5;
+            this.trackBar_ParserRange.Location = new System.Drawing.Point(813, 270);
+            this.trackBar_ParserRange.Maximum = 256;
+            this.trackBar_ParserRange.Name = "trackBar_ParserRange";
+            this.trackBar_ParserRange.Size = new System.Drawing.Size(194, 45);
+            this.trackBar_ParserRange.TabIndex = 256;
+            this.trackBar_ParserRange.Scroll += new System.EventHandler(this.trackBar_G_Scroll);
             // 
             // label2
             // 
@@ -156,17 +157,17 @@
             this.label2.Font = new System.Drawing.Font("SimSun", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label2.Location = new System.Drawing.Point(662, 270);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(154, 24);
+            this.label2.Size = new System.Drawing.Size(70, 24);
             this.label2.TabIndex = 6;
-            this.label2.Text = "Parser Range";
+            this.label2.Text = "Range";
             // 
-            // CompareResultForm
+            // CompareSetting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1010, 509);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.trackBar1);
+            this.Controls.Add(this.trackBar_ParserRange);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label_B);
             this.Controls.Add(this.label_G);
@@ -177,7 +178,7 @@
             this.Controls.Add(this.trackBar_WorkSize);
             this.Controls.Add(this.trackBar_R);
             this.Controls.Add(this.pictureBox2);
-            this.Name = "CompareResultForm";
+            this.Name = "CompareSetting";
             this.Text = "CompareResult";
             this.Load += new System.EventHandler(this.CompareResultForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -185,7 +186,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.trackBar_G)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar_B)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar_WorkSize)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar_ParserRange)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -203,7 +204,7 @@
         private System.Windows.Forms.TrackBar trackBar_WorkSize;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TrackBar trackBar1;
+        private System.Windows.Forms.TrackBar trackBar_ParserRange;
         private System.Windows.Forms.Label label2;
     }
 }
