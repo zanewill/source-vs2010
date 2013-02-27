@@ -30,6 +30,7 @@ namespace Demo
                 if (comboBoxCameras.Items.Count > 0)
                     comboBoxCameras.SelectedIndex = 0;
             }
+            StartWebCam();
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -46,6 +47,11 @@ namespace Demo
         private static Bitmap _latestFrame;
 
         private void btnStart_Click(object sender, EventArgs e)
+        {
+            StartWebCam();
+        }
+
+        private void StartWebCam()
         {
             // Early return if we've selected the current camera
             if (_frameSource != null && _frameSource.Camera == comboBoxCameras.SelectedItem)
@@ -143,6 +149,7 @@ namespace Demo
         CompareSetting compareResultForm;
         private void button1_Click(object sender, EventArgs e)
         {
+            parser = new BMPParser((Bitmap)_latestFrame.Clone());
             Bitmap compareResult = parser.ComparseBMP((Bitmap)_latestFrame.Clone());
 
             compareResultForm = new CompareSetting();

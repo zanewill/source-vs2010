@@ -52,6 +52,7 @@ namespace Demo
                     break;
                 case "trackBar_ParserRange":
                     SettingClass.Instance.ParseRange = trackBar.Value;
+                    this.label2.Text = "Range:" + trackBar.Value;
                     break;
                 default:
                     break;
@@ -66,12 +67,14 @@ namespace Demo
             trackBar_G.Value = SettingClass.Instance.G_Diff;
             trackBar_R.Value = SettingClass.Instance.R_Diff;
             trackBar_WorkSize.Value = SettingClass.Instance.WorkSize;
+            trackBar_ParserRange.Value = SettingClass.Instance.ParseRange;
 
             this.label_R.Text = "R Diff(" + SettingClass.Instance.B_Diff + ")";
             this.label_G.Text = "G Diff(" + SettingClass.Instance.G_Diff + ")";
             this.label_B.Text = "B Diff(" + SettingClass.Instance.B_Diff + ")";
 
             this.label1.Text = "WorkSize:" + SettingClass.Instance.WorkSize;
+            this.label2.Text = "Range:" + SettingClass.Instance.ParseRange;
         }
 
         private void button1_Click(object sender, EventArgs e)
